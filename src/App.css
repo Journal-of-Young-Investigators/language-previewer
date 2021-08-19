@@ -1,0 +1,38 @@
+.input-area {
+    position: relative;
+    width: 50%;
+    float: left;
+    height: 100%;
+}
+
+.input-item {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch; 
+    width: 95%;
+    margin: 1em 1em 1em 1em;
+}
+
+label {
+    padding-bottom: 0.5em;
+    display: flex;
+    justify-content: center; 
+}
+
+input[type="text"] {
+    padding: 1em 1em 1em 1em;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+.output-area {
+    position: relative;
+    width: 50%;
+    float: left;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
