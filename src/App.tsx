@@ -53,7 +53,7 @@ class LanguagePreviewer extends React.Component <MyProps, MyState> {
 
   format = () => {
     let data = '<h2>' + this.state.article.title + '</h2>';
-    data += '<div className="data">' + this.state.article.date + '</div>';
+    data += '<div class="date">' + this.state.article.date + '</div>';
     data += '<h3>' + this.formatAuthorsOrTranslators(this.state.article.authors.split(',')) + '</h3>';
     data += '<h3>' + this.formatAuthorsOrTranslators(this.state.article.translators.split(',')) +'</h3>';
     data += '<p>' + this.state.article.body + '</p>';
@@ -79,10 +79,6 @@ class LanguagePreviewer extends React.Component <MyProps, MyState> {
     });
   }
 
-  preview = () => {
-    return this.state.formattedHTML;
-  }
-
   render() {
     return (
       <div>
@@ -90,7 +86,7 @@ class LanguagePreviewer extends React.Component <MyProps, MyState> {
             <div className="input-row">
               <div className="input-item">
                 <label htmlFor="langCode">Language</label>
-                <input name="langCode" type="text" value={this.state.article.langCode} onChange={this.handleChange}/>
+                <input name="langCode" type="text" placeholder="'en' for English..." value={this.state.article.langCode} onChange={this.handleChange}/>
               </div>
               <div className="input-item">
                 <label htmlFor="title">Title</label>
@@ -100,7 +96,7 @@ class LanguagePreviewer extends React.Component <MyProps, MyState> {
             <div className="input-row">
               <div className="input-item">
                 <label htmlFor="date">Date</label>
-                <input name="date" type="text" value={this.state.article.date} onChange={this.handleChange}/>
+                <input name="date" type="text" placeholder="1 January 1990..." value={this.state.article.date} onChange={this.handleChange}/>
               </div>
               <div className="input-item">
                 <label htmlFor="authors">Authors</label>
@@ -123,7 +119,7 @@ class LanguagePreviewer extends React.Component <MyProps, MyState> {
         </div>
 
         <div className="output-area">
-          <div className="output" dangerouslySetInnerHTML={this.preview()}></div>
+          <div className="output" dangerouslySetInnerHTML={this.state.formattedHTML}></div>
         </div>  
       </div>
     )
