@@ -31,44 +31,7 @@ input[type="text"] {
     justify-content: center;
 }
 
-.output-area {
-    position: relative;
-    width: 50%;
-    float: left;
-    height: 100%;
-}
-
-.output {
-    padding-left: 0.5em;
-    margin-right: 0.5em;
-    margin-top: 0.5em;
-    border-style: solid;
-    border-color: #011e48;
-    border-radius: 10px;
-}
-
-.output h2 {
-    margin: 0;
-    padding: 0;
-    font-weight: normal;
-}
-  
-.output h3 {
-    margin: 0;
-    padding: 0;
-    font-weight: normal;
-}
-  
-.output .date {
-    margin-bottom: 1em;
-}
-  
-.output p {
-    margin: 1em 0;
-    text-indent: 2em;
-}
-
-.body {
+.text-area {
     resize: none;
     overflow: auto;
     height: 15em;
