@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
+
+import { useQuill } from 'react-quilljs';
+import 'quill/dist/quill.snow.css';
+
 import './App.css';
-import {LanguageSwitcher} from './components/lang-switcher'
+import { LanguageSwitcher } from './components/lang-switcher'
 
 interface jyiArticleContent {
   // ISO 639 code to identify language; 'en' for English, 'es' for Spanish, etc.
@@ -37,12 +41,54 @@ class inputArticleContentFormat {
 
 type MyProps = {
 
-}
+};
 
 type MyState = {
   inputArticle: inputArticleContentFormat;
   previewArticle: jyiArticle;
   showPreview: boolean;
+};
+
+const QuillComponent: FunctionComponent = () => {
+  const theme = 'snow';
+  const modules = {
+    toolbar: [
+      ['bold', 'italic', 'underline'],
+      [{ align: [] }],
+
+      [{ list: 'ordered'}, { list: 'bullet' }],
+      [{ indent: '-1'}, { indent: '+1' }],
+
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+      ['link', 'image', 'video'],
+
+      ['clean'],
+    ],
+    clipboard: {
+      matchVisual: false,
+    },
+  }
+  const placeholder = 'Body text...';
+  const formats = [
+    'bold', 'italic', 'underline',
+    'align', 'list', 'indent',
+    'header',
+    'link', 'image', 'video',
+    'clean',
+  ];
+  const { quill, quillRef } = useQuill({ theme, modules, formats, placeholder});
+
+  function testSubmit (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    event.preventDefault();
+    console.log(quill.root.innerHTML);
+  }
+  
+  return (
+    <div className="quill-box">
+      <div ref={quillRef}></div>
+      <button type="submit" onClick={testSubmit}>Test quill submit</button>
+    </div>
+  )
 }
 
 class LanguagePreviewer extends React.Component <MyProps, MyState> {
@@ -54,7 +100,7 @@ class LanguagePreviewer extends React.Component <MyProps, MyState> {
     },
     showPreview: false
   }
-  
+
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -135,6 +181,10 @@ class LanguagePreviewer extends React.Component <MyProps, MyState> {
               <textarea className="text-area" name="body" value={this.state.inputArticle.body} onChange={this.handleTextChange}></textarea>
             </div>
             <div className="input-item">
+              <label>Test Quill</label>
+              <QuillComponent />
+            </div>
+            <div className="input-item">
               <div className="button">
                 <button type="submit" onClick={this.preview}>Show Preview</button>
               </div>
@@ -147,6 +197,7 @@ class LanguagePreviewer extends React.Component <MyProps, MyState> {
             <LanguageSwitcher article={this.state.previewArticle}/>
           }
         </div>  
+
       </div>
     )
   }
