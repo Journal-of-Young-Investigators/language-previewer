@@ -4,7 +4,7 @@ import { useQuill } from 'react-quilljs';
 import 'quill/dist/quill.snow.css';
 
 import './App.css';
-import { LanguageSwitcher } from './components/lang-switcher'
+import { LanguageSwitcher } from '../lang-switcher'
 
 interface jyiArticleContent {
   // ISO 639 code to identify language; 'en' for English, 'es' for Spanish, etc.
@@ -27,7 +27,7 @@ enum Language {
   en='English',
   es='Español',
   fr='Français',
-  zh='中國人'
+  zh='中文'
 };
 
 class inputArticleContentFormat {

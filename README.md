@@ -1,46 +1,28 @@
-# Getting Started with Create React App
+# Next steps:
+The jyi-components library should be where you make most of your changes, then you just reinstall the library to the actual applications (lang-previewer and switcher react apps).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Steps:
+1. Make a change to a component in jyi-components (say, refactor lang-previewer to use createRef.)
+2. Run "tsc" in the command line to compile the library.
+3. Run the usual commands to add the changes to git, commit them, and push to GitHub.
+4. Switch over the the create-react-app (this repo for lang-previewer for instance), and run "npm i https://github.com/Journal-of-Young-Investigators/jyi-components.git" to update to the newest version of the library.
+5. Develop your app using the library.
+e
+# Requirements:
 
-## Available Scripts
+### In jyi-component library:
+* Consider separating the interfaces and other things you use across components into their own folder in the library. Make sure to export them from the file they're in AND from the folder they're in (from index.ts).
+* Refactor lang-previewer component to leverage createRef for the form and live-reloading of preview.
+  * Examples: https://reactjs.org/docs/refs-and-the-dom.html
+* Refactor lang-previewer component to have tabs or a dropdown to add a new translation to the preview.
+  * Tip: When adding a new language, you'll basically need a whole "new" form - at least for the title and body - to populate the language specific stuff. Treat the form like a mapped component (vaguely like: articleTranslations.map(() => <Form>), since the number of translations will be dynamic. You will run into a problem where multiple copies of the form rendered on the page, when really you only want one at a time. Solve this with CSS - add a prop to show which form is active, and use "display: none" to hide the others (similar to how lang-switcher only displays the active language).
+* Refactor lang-switcher component to use a button dropdown to select language instead of multiple buttons per language.
 
-In the project directory, you can run:
+### In lang-previewer app (this repo):
+* Refactor to use jyi-component library (already done for you - check out index.ts to see how it's done).
+* Remove extraneous code.
 
-### `npm start`
+### In lang-switcher app:
+* Refactor to use jyi-component library and remove extraneous code.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

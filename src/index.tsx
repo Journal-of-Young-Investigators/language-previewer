@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import LanguagePreviewer from './App';
+import { LanguagePreviewer } from 'jyi-components'
 
 ReactDOM.render(
   <React.StrictMode>

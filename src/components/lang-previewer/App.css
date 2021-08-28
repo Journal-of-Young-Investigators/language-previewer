@@ -1,0 +1,39 @@
+.input-area {
+    display: block;
+    position: relative;
+    width: 50%;
+    float: left;
+    height: 100%;
+}
+
+.input-row {
+    display: flex;
+}
+
+.input-item {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch; 
+    width: 95%;
+    margin: 0.5em 0.5em 0.5em 0.5em;
+}
+
+label {
+    padding-bottom: 0.25em; 
+}
+
+input[type="text"] {
+    padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+.text-area {
+    resize: none;
+    overflow: auto;
+    height: 15em;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+}
