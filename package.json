@@ -9,7 +9,7 @@
     "@types/jest": "^26.0.24",
     "@types/node": "^12.20.19",
     "@types/react-dom": "^17.0.9",
-    "jyi-components": "git+https://github.com/Journal-of-Young-Investigators/jyi-components.git",
+    "jyi-components": "file:../jyi-components",
     "quill": "^1.3.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
